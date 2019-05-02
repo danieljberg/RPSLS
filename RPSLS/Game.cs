@@ -106,7 +106,7 @@ namespace RPSLS
         }
         public void RulesOfGame()
         {
-            Console.WriteLine("Two players each pick a gesture:\n\n'rock','paper','scissors','lizard' or 'spock'\n\n\nRules:\n\nScissors cuts Paper\nPaper covers Rock\nRock cruches Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\nRock crushes Scissors\n\n");
+            Console.WriteLine("This is a two player game where each player picks a gesture:\n'rock','paper','scissors','lizard' or 'spock'\nThis game is a best of three round series\n\nRules:\n\nScissors cuts Paper\nPaper covers Rock\nRock cruches Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\nRock crushes Scissors\n\n");
         }
     }
 }

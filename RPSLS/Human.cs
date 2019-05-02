@@ -26,10 +26,15 @@ namespace RPSLS
             {
                 Console.WriteLine("Option " + (i+1) + " " + gestures[i]);
             }
-
-
             pickGesture = Console.ReadLine();
-            return pickGesture;
+            if (gestures.Contains(pickGesture))
+            {
+                return pickGesture;
+            }            
+            else
+            {
+                return PickGesture(gestures);
+            }
         }
         public string GetName()
         {
