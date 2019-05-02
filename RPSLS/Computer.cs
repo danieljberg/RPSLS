@@ -20,10 +20,12 @@ namespace RPSLS
 
 
         //member mathods (HAS TO)
-        public override string PickGesture()
+        public override string PickGesture(List<string> gestures)
         {
-            Random num = new Random(4);
-            pickGesture = gestures.ElementAt(num);
+            Random randomNumberGenerator = new Random();
+            int indexNumber = randomNumberGenerator.Next(5);
+            pickGesture = gestures.ElementAt(indexNumber);
+            Console.WriteLine("The computer picked " + pickGesture);
             return pickGesture;
         }
     }

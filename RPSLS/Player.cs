@@ -23,6 +23,6 @@ namespace RPSLS
 
         //member mathods (HAS TO)
 
-        public abstract string PickGesture();
+        public abstract string PickGesture(List<string> gestures);
     }
 }
