@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Game
+    public class Game
     {
         //member variables (HAS A)
 
-        //public List<string> gestures;
+                //public List<string> gestures;
         Player P1;
         Player P2;
         public string playerMove;
@@ -64,7 +64,7 @@ namespace RPSLS
 
         }
 
-        public void PlayRound()
+        public string PlayRound()
         {
             Console.WriteLine("Enter your move:\n'rock','paper','scissors','lazard' or 'spock'");
             return playerMove = Console.ReadLine();
