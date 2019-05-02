@@ -15,14 +15,12 @@ namespace RPSLS
         Player P2;
         public string playerMove;
         public int howManyPlayers;
+        public List<string> gestures;
 
         //constructor(SPAWNER)
         public Game()
         {
-            //List<string> gestures = new List<string>()
-            //{
-
-            //};
+            gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
 
             Player P1 = new Human();
             if (HowManyPlayers() == 1)
@@ -42,7 +40,7 @@ namespace RPSLS
         public int HowManyPlayers()
         {
             Console.WriteLine("Enter the number of players '1 or 2'");
-            howManyPlayers = Console.ReadLine();
+            howManyPlayers = int.Parse(Console.ReadLine());
             if (howManyPlayers == 1 || howManyPlayers == 2)
             {
                 return howManyPlayers;
@@ -56,7 +54,14 @@ namespace RPSLS
 
         public void WhoWonRound()
         {
-
+            if ((P1.pickGesture == "scissors" && P2.pickGesture == "paper") || (P1.pickGesture == "paper" && P2.pickGesture == "rock"))
+            {
+                P1.roundsWon++;
+            }
+            else
+            {
+                P2.roundsWon++;
+            }
         }
 
         public void WhoWonGame()
@@ -64,14 +69,17 @@ namespace RPSLS
 
         }
 
-        public string PlayRound()
+        public void PlayRound()
         {
-            Console.WriteLine("Enter your move:\n'rock','paper','scissors','lazard' or 'spock'");
-            return playerMove = Console.ReadLine();
+            
         }
         public void FindWichGestureWins()
         {
 
+        }
+        public void rulesOfGame()
+        {
+            Console.WriteLine("Two players each pick a gesture:\n\n'rock','paper','scissors','lazard' or 'spock'\n\n\nWhat beats what:\nScissors cuts Paper\nPaper covers Rock\nRock cruches Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\nRock crushes Scissors");
         }
     }
 }

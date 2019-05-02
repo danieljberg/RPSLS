@@ -9,19 +9,22 @@ namespace RPSLS
     class Computer : Player 
     {
         //member variables (HAS A)
-
+        
 
         //constructor(SPAWNER)
         public Computer()
         {
+            name = "Virtual Sheldon";
 
         }
 
 
         //member mathods (HAS TO)
-        public override void PickGesture()
+        public override string PickGesture()
         {
-
+            Random num = new Random(4);
+            pickGesture = gestures.ElementAt(num);
+            return pickGesture;
         }
     }
 }

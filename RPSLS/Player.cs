@@ -9,15 +9,20 @@ namespace RPSLS
     public abstract class Player
     {
         //member variables (HAS A)
+        
+        public string name;
+        public string pickGesture;
         public int roundsWon;
 
         //constructor(SPAWNER)
+
         public Player()
         {
-
+            roundsWon = 0;
         }
 
         //member mathods (HAS TO)
-        public abstract void PickGesture();
+
+        public abstract string PickGesture();
     }
 }
