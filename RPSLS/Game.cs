@@ -23,7 +23,7 @@ namespace RPSLS
             gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
 
             Player P1 = new Human();
-            if (HowManyPlayers() == 1)
+            if (howManyPlayers == 1)
             {
                 Player P2 = new Computer();
             }
@@ -54,7 +54,7 @@ namespace RPSLS
 
         public void WhoWonRound()
         {
-            if ((P1.pickGesture == "scissors" && P2.pickGesture == "paper") || (P1.pickGesture == "paper" && P2.pickGesture == "rock"))
+            if ((P1.pickGesture == "scissors" && P2.pickGesture == "paper") || (P1.pickGesture == "paper" && P2.pickGesture == "rock") || (P1.pickGesture == "rock" && P2.pickGesture == "lizard") || (P1.pickGesture == "lizard" && P2.pickGesture == "spock") || (P1.pickGesture == "spock" && P2.pickGesture == "scissors") || (P1.pickGesture == "scissors" && P2.pickGesture == "lizard") || (P1.pickGesture == "lizard" && P2.pickGesture == "paper") || (P1.pickGesture == "paper" && P2.pickGesture == "spock") || (P1.pickGesture == "spock" && P2.pickGesture == "rock") || (P1.pickGesture == "rock" && P2.pickGesture == "scissors"))
             {
                 P1.roundsWon++;
             }
@@ -66,18 +66,29 @@ namespace RPSLS
 
         public void WhoWonGame()
         {
+            if (P1.roundsWon == 2)
+            {
+                Console.WriteLine($"Congratulations {P1.name} won!!");
+            }
+            if (P2.roundsWon == 2)
+            {
+                Console.WriteLine($"Congratulations {P2.name} won!!");
+            }
 
         }
 
         public void PlayRound()
         {
-            
+            RulesOfGame();
+            HowManyPlayers();
+
+
         }
         public void FindWichGestureWins()
         {
 
         }
-        public void rulesOfGame()
+        public void RulesOfGame()
         {
             Console.WriteLine("Two players each pick a gesture:\n\n'rock','paper','scissors','lazard' or 'spock'\n\n\nWhat beats what:\nScissors cuts Paper\nPaper covers Rock\nRock cruches Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\nRock crushes Scissors");
         }
