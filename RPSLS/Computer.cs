@@ -25,7 +25,7 @@ namespace RPSLS
             Random randomNumberGenerator = new Random();
             int indexNumber = randomNumberGenerator.Next(5);
             pickGesture = gestures.ElementAt(indexNumber);
-            Console.WriteLine("The computer picked " + pickGesture);
+            Console.WriteLine("\nThe computer picked " + pickGesture);
             return pickGesture;
         }
     }

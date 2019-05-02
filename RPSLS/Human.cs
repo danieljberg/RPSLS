@@ -21,7 +21,7 @@ namespace RPSLS
         //member mathods (HAS TO)
         public override string PickGesture(List<string> gestures)
         {
-            Console.WriteLine($"{name} please choose your gesture:");
+            Console.WriteLine($"\n{name} please choose your gesture:");
             for(int i = 0; i < gestures.Count; i++)
             {
                 Console.WriteLine("Option " + (i+1) + " " + gestures[i]);

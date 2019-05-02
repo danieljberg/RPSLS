@@ -45,16 +45,17 @@ namespace RPSLS
             if ((P1.pickGesture == "scissors" && P2.pickGesture == "paper") || (P1.pickGesture == "paper" && P2.pickGesture == "rock") || (P1.pickGesture == "rock" && P2.pickGesture == "lizard") || (P1.pickGesture == "lizard" && P2.pickGesture == "spock") || (P1.pickGesture == "spock" && P2.pickGesture == "scissors") || (P1.pickGesture == "scissors" && P2.pickGesture == "lizard") || (P1.pickGesture == "lizard" && P2.pickGesture == "paper") || (P1.pickGesture == "paper" && P2.pickGesture == "spock") || (P1.pickGesture == "spock" && P2.pickGesture == "rock") || (P1.pickGesture == "rock" && P2.pickGesture == "scissors"))
             {
                 P1.roundsWon++;
-                Console.WriteLine($"Congratulations {P1.name} won that round!!");
+                Console.WriteLine($"{P1.name} won that round");
             }
             else if ((P1.pickGesture == "rock" && P2.pickGesture == "rock") || (P1.pickGesture == "scissors" && P2.pickGesture == "scissors") || (P1.pickGesture == "paper" && P2.pickGesture == "paper") || (P1.pickGesture == "lizard" && P2.pickGesture == "lizard") || (P1.pickGesture == "spock" && P2.pickGesture == "spock"))
             {
+                Console.WriteLine($"{P1.name}'s score is " + P1.roundsWon + $"\n{P2.name}'s score is " + P2.roundsWon);
                 PlayRound();
             }
             else
             {
                 P2.roundsWon++;
-                Console.WriteLine($"Congratulations {P2.name} won that round!!");
+                Console.WriteLine($"{P2.name} won that round");
             }
            
         }
@@ -63,11 +64,11 @@ namespace RPSLS
         {
             if (P1.roundsWon == 2)
             {
-                Console.WriteLine($"Congratulations {P1.name} won the game");
+                Console.WriteLine($"Congratulations {P1.name} won the game!");
             }
             if (P2.roundsWon == 2)
             {
-                Console.WriteLine($"Congratulations {P2.name} won the game");
+                Console.WriteLine($"Congratulations {P2.name} won the game!");
             }
             Console.ReadLine();
         }
