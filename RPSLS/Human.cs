@@ -21,11 +21,12 @@ namespace RPSLS
         //member mathods (HAS TO)
         public override string PickGesture(List<string> gestures)
         {
-            Console.WriteLine($"\n{name} please choose your gesture:");
-            for(int i = 0; i < gestures.Count; i++)
-            {
-                Console.WriteLine("Option " + (i+1) + " " + gestures[i]);
+            Console.WriteLine($"\n{name} please type your gesture:\nOptions:\n");
+            for (int i = 0; i < gestures.Count; i++)
+            {                
+                Console.WriteLine(gestures[i]);                
             }
+            Console.WriteLine("\n");
             pickGesture = Console.ReadLine();
             if (gestures.Contains(pickGesture))
             {
@@ -33,6 +34,7 @@ namespace RPSLS
             }            
             else
             {
+                Console.WriteLine("\nYOU DID NOT ENTER A VALID OPTION\n");
                 return PickGesture(gestures);
             }
         }

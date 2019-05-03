@@ -25,6 +25,11 @@ namespace RPSLS
 
 
         //member mathods (HAS TO)
+        public void RulesOfGame()
+        {
+            Console.WriteLine("This is a two player game where each player picks a gesture:\n'rock','paper','scissors','lizard' or 'spock'\nThis game is a best of three round" +
+                " series\n\nRules:\n\nScissors cuts Paper\nPaper covers Rock\nRock cruches Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\nRock crushes Scissors\n\n");
+        }
         public int HowManyPlayers()
         {
             Console.WriteLine("Enter the number of players '1' or '2':");
@@ -65,12 +70,13 @@ namespace RPSLS
             if (P1.roundsWon == 2)
             {
                 Console.WriteLine($"Congratulations {P1.name} won the game!");
+                P1.gamesWon++;
             }
             if (P2.roundsWon == 2)
             {
                 Console.WriteLine($"Congratulations {P2.name} won the game!");
+                P2.gamesWon++;
             }
-            Console.ReadLine();
         }
 
         public void PlayGame()
@@ -80,12 +86,26 @@ namespace RPSLS
             CreatePlayer();
             while((P1.roundsWon < 2) && (P2.roundsWon < 2))
             {
-                PlayRound();
+                PlayRound();                
                 Console.WriteLine($"\n\n{P1.name}'s score is " + P1.roundsWon + $"\n{P2.name}'s score is " + P2.roundsWon);
             }
             WhoWonGame();
+            PlayAgain();
         }
-
+        public void PlayAnotherGame()
+        {
+            P1.roundsWon = 0;
+            P2.roundsWon = 0;
+            while ((P1.roundsWon < 2) && (P2.roundsWon < 2))
+            {
+                Console.WriteLine($"\n{P1.name} won " + P1.gamesWon + $" games\n{P2.name} won " + P2.gamesWon + " games");
+                PlayRound();
+                WhoWonRound();
+                Console.WriteLine($"\n\n{P1.name}'s score is " + P1.roundsWon + $"\n{P2.name}'s score is " + P2.roundsWon);
+            }
+            WhoWonGame();
+            PlayAgain();
+        }
         public void PlayRound()
         {
             P1.PickGesture(gestures);
@@ -104,9 +124,25 @@ namespace RPSLS
                 P2 = new Human();
             }
         }
-        public void RulesOfGame()
+        public void PlayAgain()
         {
-            Console.WriteLine("This is a two player game where each player picks a gesture:\n'rock','paper','scissors','lizard' or 'spock'\nThis game is a best of three round series\n\nRules:\n\nScissors cuts Paper\nPaper covers Rock\nRock cruches Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\nRock crushes Scissors\n\n");
+            Console.WriteLine("Would you like to play another game (yes or no)");
+            string playAgain = Console.ReadLine();
+            if (playAgain == "yes")
+            {
+                PlayAnotherGame();
+            }
+            if (playAgain == "no")
+            {
+                Console.WriteLine("Thank you for playing");
+                Console.WriteLine($"\n{P1.name} won " + P1.gamesWon + $" games\n{P2.name} won " + P2.gamesWon + " games");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("\nENTER 'YES' OR 'NO'\n");
+                PlayAgain();
+            }
         }
     }
 }

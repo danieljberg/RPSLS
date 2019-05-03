@@ -13,6 +13,7 @@ namespace RPSLS
         public string name;
         public string pickGesture;
         public int roundsWon;
+        public int gamesWon;
 
         //constructor(SPAWNER)
 
