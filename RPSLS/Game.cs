@@ -13,8 +13,6 @@ namespace RPSLS
                 //public List<string> gestures;
         Player P1;
         Player P2;
-        public string playerMove;
-        public int howManyPlayers;
         public List<string> gestures;
 
         //constructor(SPAWNER) instantiates objects
@@ -33,7 +31,7 @@ namespace RPSLS
         public int HowManyPlayers()
         {
             Console.WriteLine("Enter the number of players '1' or '2':");
-            howManyPlayers = int.Parse(Console.ReadLine());
+            int howManyPlayers = int.Parse(Console.ReadLine());
             if (howManyPlayers == 1 || howManyPlayers == 2)
             {
                 return howManyPlayers;
@@ -82,8 +80,8 @@ namespace RPSLS
         public void PlayGame()
         {
             RulesOfGame();
-            HowManyPlayers();
-            CreatePlayer();
+            int numOfPlayers = HowManyPlayers();
+            CreatePlayer(numOfPlayers);
             while((P1.roundsWon < 2) && (P2.roundsWon < 2))
             {
                 PlayRound();                
@@ -112,7 +110,7 @@ namespace RPSLS
             P2.PickGesture(gestures);
             WhoWonRound();
         }
-        public void CreatePlayer()
+        public void CreatePlayer(int howManyPlayers)
         {
             P1 = new Human();
             if (howManyPlayers == 1)
