@@ -98,7 +98,7 @@ namespace RPSLS
             {
                 Console.WriteLine($"\n{P1.name} won " + P1.gamesWon + $" games\n{P2.name} won " + P2.gamesWon + " games");
                 PlayRound();
-                WhoWonRound();
+                //WhoWonRound();
                 Console.WriteLine($"\n\n{P1.name}'s score is " + P1.roundsWon + $"\n{P2.name}'s score is " + P2.roundsWon);
             }
             WhoWonGame();
@@ -130,7 +130,7 @@ namespace RPSLS
             {
                 PlayAnotherGame();
             }
-            if (playAgain == "no")
+            else if (playAgain == "no")
             {
                 Console.WriteLine("Thank you for playing");
                 Console.WriteLine($"\n{P1.name} won " + P1.gamesWon + $" games\n{P2.name} won " + P2.gamesWon + " games");
